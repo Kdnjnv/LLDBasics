@@ -11,7 +11,8 @@ public class Main {
 
         System.out.println("Invoice: " + invoice.calculateInvoice());
         invoicePrinter.printInvoice();
-        invoiceSaver.saveInvoice();
+        invoiceSaver.saveInvoiceToDB();
+        invoiceSaver.saveInvoiceToFile();
 
     }
 }

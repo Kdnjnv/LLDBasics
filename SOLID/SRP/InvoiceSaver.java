@@ -8,7 +8,7 @@ public class InvoiceSaver {
     }
 
     public void saveInvoiceToDB() {
-        System.out.println("saving invoice DB, Invoice: " + invoice.calculateInvoice());
+        System.out.println("saving invoice to DB, Invoice: " + invoice.calculateInvoice());
     }
 
     public void saveInvoiceToFile() {
