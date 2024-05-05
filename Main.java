@@ -8,8 +8,18 @@ import javax.crypto.Mac;
 public class Main {
     public static void main(String[] args) {
 
-        Macbook macbook = new Macbook();
-        macbook.type();
-        macbook.click();
+        NormalKeyboard normalKeyboard = new NormalKeyboard();
+        BluetoothKeyboard bluetoothKeyboard = new BluetoothKeyboard();
+
+        NormalMouse normalMouse = new NormalMouse();
+        BluetoothMouse bluetoothMouse = new BluetoothMouse();
+
+        Macbook NKNM = new Macbook(normalKeyboard, normalMouse);
+        NKNM.type();
+        NKNM.click();
+
+        Macbook BKNM = new Macbook(bluetoothKeyboard, normalMouse);
+        BKNM.type();
+        BKNM.click();
     }
 }
