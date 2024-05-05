@@ -2,8 +2,6 @@ package designPatterns.observerPattern.observer;
 
 import designPatterns.observerPattern.observable.StockObservable;
 
-import javax.management.NotificationFilter;
-
 public class PhoneNotificationObserver implements NotificationAlertObserver{
     private String phone;
     private StockObservable stockObservable;
