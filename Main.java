@@ -6,13 +6,11 @@ public class Main {
     public static void main(String[] args) {
         Marker marker = new Marker("cello", "black", 10, 2024);
         Invoice invoice = new Invoice(marker, 12);
-        InvoicePrinter invoicePrinter = new InvoicePrinter(invoice);
-        InvoiceSaver invoiceSaver = new InvoiceSaver(invoice);
 
-        System.out.println("Invoice: " + invoice.calculateInvoice());
-        invoicePrinter.printInvoice();
-        invoiceSaver.saveInvoiceToDB();
-        invoiceSaver.saveInvoiceToFile();
+        DatabaseInvoiceDao databaseInvoiceDao = new DatabaseInvoiceDao();
+        databaseInvoiceDao.save(invoice);
+        FileInvoiceDao fileInvoiceDao = new FileInvoiceDao();
+        fileInvoiceDao.save(invoice);
 
     }
 }
