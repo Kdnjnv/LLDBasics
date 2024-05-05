@@ -1,16 +1,22 @@
+import SOLID.LSP.Bike;
+import SOLID.LSP.Cycle;
+import SOLID.LSP.MotorBike;
 import SOLID.SRP.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Marker marker = new Marker("cello", "black", 10, 2024);
-        Invoice invoice = new Invoice(marker, 12);
+        MotorBike motorBike = new MotorBike();
+        motorBike.accelerate();
+        motorBike.turnOnEngine();
 
-        DatabaseInvoiceDao databaseInvoiceDao = new DatabaseInvoiceDao();
-        databaseInvoiceDao.save(invoice);
-        FileInvoiceDao fileInvoiceDao = new FileInvoiceDao();
-        fileInvoiceDao.save(invoice);
+        Bike bike1 = new MotorBike();
+        bike1.accelerate();
+        bike1.turnOnEngine();
 
+        Bike bike2 = new Cycle();
+        bike2.accelerate();
+        bike2.turnOnEngine();
     }
 }
