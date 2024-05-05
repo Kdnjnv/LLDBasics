@@ -1,24 +1,28 @@
 package SOLID.SRP;
 
 public class Invoice {
-    private Marker marker;
-    private int quantity;
-    
-    public Invoice(Marker marker, int quantity) {
-        this.marker = marker;
-        this.quantity = quantity;
+    private InvoiceCalculator invoiceCalculator;
+    private InvoicePrinter invoicePrinter;
+    private InvoiceSaver invoiceSaver;
+
+    public Invoice(InvoiceCalculator invoiceCalculator, InvoiceSaver invoiceSaver, InvoicePrinter invoicePrinter) {
+        this.invoiceCalculator = invoiceCalculator;
+        this.invoiceSaver = invoiceSaver;
+        this.invoicePrinter = invoicePrinter;
     }
 
-    public int calculateInvoice() {
-        //System.out.println("SOLID.SRP.Invoice amount is: " + (marker.price * quantity));
-        return marker.price * quantity;
+    public void calculateInvoice() {
+        int total = invoiceCalculator.calculateInvoice();
+        System.out.println("why the helll you need this method Invoice: " + total);
     }
 
     public void saveInvoice() {
-        System.out.println("saving SOLID.SRP.Invoice to DB");
+        invoiceSaver.saveInvoice();
     }
 
     public void printInvoice() {
-        System.out.println("printing SOLID.SRP.Invoice");
+        invoicePrinter.printInvoice();
     }
+
+
 }
