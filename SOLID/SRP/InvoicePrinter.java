@@ -1,9 +1,9 @@
 package SOLID.SRP;
 
 public class InvoicePrinter {
-    private InvoiceCalculator invoice;
+    private Invoice invoice;
 
-    public InvoicePrinter(InvoiceCalculator invoice) {
+    public InvoicePrinter(Invoice invoice) {
         this.invoice = invoice;
     }
 

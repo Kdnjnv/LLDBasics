@@ -1,9 +1,9 @@
 package SOLID.SRP;
 
 public class InvoiceSaver {
-    private InvoiceCalculator invoice;
+    private Invoice invoice;
 
-    public InvoiceSaver(InvoiceCalculator invoice) {
+    public InvoiceSaver(Invoice invoice) {
         this.invoice = invoice;
     }
     public void saveInvoice() {
