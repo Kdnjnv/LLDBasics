@@ -1,4 +1,7 @@
 import SOLID.DI.*;
+import designPatterns.withoutStrategy.PassengerVehicle;
+import designPatterns.withoutStrategy.SportsVehicle;
+import designPatterns.withoutStrategy.Vehicle;
 
 
 import javax.crypto.Mac;
@@ -8,18 +11,11 @@ import javax.crypto.Mac;
 public class Main {
     public static void main(String[] args) {
 
-        NormalKeyboard normalKeyboard = new NormalKeyboard();
-        BluetoothKeyboard bluetoothKeyboard = new BluetoothKeyboard();
+        Vehicle sportsVehicle = new SportsVehicle();
+        Vehicle passengerVehicle = new PassengerVehicle();
 
-        NormalMouse normalMouse = new NormalMouse();
-        BluetoothMouse bluetoothMouse = new BluetoothMouse();
+        sportsVehicle.drive();
+        passengerVehicle.drive();
 
-        Macbook NKNM = new Macbook(normalKeyboard, normalMouse);
-        NKNM.type();
-        NKNM.click();
-
-        Macbook BKNM = new Macbook(bluetoothKeyboard, normalMouse);
-        BKNM.type();
-        BKNM.click();
     }
 }
