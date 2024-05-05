@@ -1,9 +1,14 @@
-import designPatterns.withStrategy.PassengerVehicle;
-import designPatterns.withStrategy.SportsVehicle;
-import designPatterns.withStrategy.Vehicle;
-import designPatterns.withStrategy.driveStrategy.DriveStrategy;
-import designPatterns.withStrategy.driveStrategy.NormalDriveStrategy;
-import designPatterns.withStrategy.driveStrategy.SpecialDriveStrategy;
+import designPatterns.observerPattern.observable.IphoneObservable;
+import designPatterns.observerPattern.observable.StockObservable;
+import designPatterns.observerPattern.observer.EmailNotificationAlertObserver;
+import designPatterns.observerPattern.observer.NotificationAlertObserver;
+import designPatterns.observerPattern.observer.PhoneNotificationObserver;
+import designPatterns.strategyPattern.withStrategy.PassengerVehicle;
+import designPatterns.strategyPattern.withStrategy.SportsVehicle;
+import designPatterns.strategyPattern.withStrategy.Vehicle;
+import designPatterns.strategyPattern.withStrategy.driveStrategy.DriveStrategy;
+import designPatterns.strategyPattern.withStrategy.driveStrategy.NormalDriveStrategy;
+import designPatterns.strategyPattern.withStrategy.driveStrategy.SpecialDriveStrategy;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -11,13 +16,16 @@ import designPatterns.withStrategy.driveStrategy.SpecialDriveStrategy;
 public class Main {
     public static void main(String[] args) {
 
-        DriveStrategy normalDriveStrategy = new NormalDriveStrategy();
-        DriveStrategy specialDriveStrategy = new SpecialDriveStrategy();
+        StockObservable iphoneObservable = new IphoneObservable();
 
-        Vehicle sportsVehicle = new SportsVehicle(specialDriveStrategy);
-        Vehicle passengerVehicle = new PassengerVehicle(normalDriveStrategy);
+        NotificationAlertObserver emailNotificationAlertObserver = new EmailNotificationAlertObserver(iphoneObservable, "kundanjnv11@gmail.com");
+        NotificationAlertObserver phoneNotificationAlertObserver = new PhoneNotificationObserver(iphoneObservable, "1234567890");
+        NotificationAlertObserver phoneNotificationAlertObserver2 = new PhoneNotificationObserver(iphoneObservable, "1234567888");
 
-        sportsVehicle.drive();
-        passengerVehicle.drive();
+        iphoneObservable.add(emailNotificationAlertObserver);
+        iphoneObservable.add(phoneNotificationAlertObserver);
+        iphoneObservable.add(phoneNotificationAlertObserver2);
+
+        iphoneObservable.setStock(10);
     }
 }

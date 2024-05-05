@@ -1,4 +1,4 @@
-package designPatterns.withStrategy.driveStrategy;
+package designPatterns.strategyPattern.withStrategy.driveStrategy;
 
 public class SpecialDriveStrategy implements DriveStrategy{
     @Override

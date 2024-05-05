@@ -1,6 +1,6 @@
-package designPatterns.withStrategy;
+package designPatterns.strategyPattern.withStrategy;
 
-import designPatterns.withStrategy.driveStrategy.DriveStrategy;
+import designPatterns.strategyPattern.withStrategy.driveStrategy.DriveStrategy;
 
 public class GoodsVehicle extends Vehicle{
     public GoodsVehicle(DriveStrategy driveStrategy) {
