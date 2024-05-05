@@ -6,7 +6,13 @@ public class InvoiceSaver {
     public InvoiceSaver(Invoice invoice) {
         this.invoice = invoice;
     }
-    public void saveInvoice() {
-        System.out.println("saving invoice, Invoice: " + invoice.calculateInvoice());
+
+    public void saveInvoiceToDB() {
+        System.out.println("saving invoice DB, Invoice: " + invoice.calculateInvoice());
     }
+
+    public void saveInvoiceToFile() {
+        System.out.println("Saving invoice to file");
+    }
+    //OCP voilation
 }

@@ -11,7 +11,6 @@ public class Invoice {
 
     public int calculateInvoice() {
         int total = this.quantity * marker.price;
-        System.out.println("Invoice: " + total);
         return total;
     }
 }

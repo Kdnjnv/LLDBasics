@@ -9,7 +9,7 @@ public class Main {
         InvoicePrinter invoicePrinter = new InvoicePrinter(invoice);
         InvoiceSaver invoiceSaver = new InvoiceSaver(invoice);
 
-        invoice.calculateInvoice();
+        System.out.println("Invoice: " + invoice.calculateInvoice());
         invoicePrinter.printInvoice();
         invoiceSaver.saveInvoice();
 
