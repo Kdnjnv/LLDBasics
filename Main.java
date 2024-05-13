@@ -1,3 +1,10 @@
+import LLDQuestions.elavatorSystem.*;
+import LLDQuestions.elavatorSystem.buttons.ElevatorButton;
+import LLDQuestions.elavatorSystem.display.ElevatorDisplay;
+import LLDQuestions.elavatorSystem.display.HallDisplay;
+import LLDQuestions.elavatorSystem.enums.Direction;
+import LLDQuestions.elavatorSystem.enums.DoorState;
+import LLDQuestions.elavatorSystem.enums.ElevatorState;
 import OOPsConcepts.abstraction.Circle;
 import OOPsConcepts.encapsulation.Movie;
 import OOPsConcepts.inheritance.ElectricCar;
@@ -11,33 +18,18 @@ import OOPsConcepts.polymorphism.methodOverridin.Lion;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Movie movie = new Movie("Kal ho na ho", 2013, "Comedy");
-        System.out.println("Movie name: " + movie.getName() + "year: " + movie.getYear() + "genre: " + movie.getYear());
+        ElevatorPanel elevatorPanel = new ElevatorPanel();
+        HallPanel hallPanel = new HallPanel();
+        ElevatorDisplay elevatorDisplay = new ElevatorDisplay(15, Direction.DOWN, 1);
+        HallDisplay hallDisplay = new HallDisplay(Direction.DOWN, 1);
+        ElevatorCar elevatorCar = new ElevatorCar(101, elevatorDisplay, elevatorPanel, new Door(DoorState.CLOSED), ElevatorState.DOWN);
+        Floor floor = new Floor(hallDisplay, hallPanel);
+        Building building = Building.getInstance();
+        building.addElevatorCar(elevatorCar);
+        building.addFloor(floor);
 
-        Circle circle = new Circle(10);
-        System.out.println("Area of circle = " + circle.area() + "\nPerimeter of circle = " + circle.perimeter());
-
-        System.out.println("\nsingle inheritance");
-        FuelCar fuelCar = new FuelCar("Honda", "Accord", "Petrol");
-        fuelCar.getFuelCar();
-
-        System.out.println("\nHierarchical inheritance");
-        ElectricCar electricCar = new ElectricCar("Tesla", "ModelX", "200MWH");
-        electricCar.getElectricCar();
-
-        System.out.println("\nMultilevel inheritance");
-        GasolinCar gasolinCar = new GasolinCar("Toyota", "corolla" , "Gasline", "30 litres");
-        gasolinCar.getGasolinCar();
-
-        System.out.println("\n\nMethod Overriding");
-        Animal animal;
-        Lion lion = new Lion();
-        lion.method1();
-        lion.method2();
-
-        System.out.println("\nMethod Overloading");
-        Sum sum = new Sum();
-        System.out.println("sum of 10 + 20 = " + sum.add(10,20));
-        System.out.println("sum of 10 + 20 + 30 = " + sum.add(10,20, 30));
+        ElevatorSystem elevatorSystem = ElevatorSystem.getInstance();
+        elevatorSystem.monitoring();
+        elevatorSystem.dispatcher();
     }
 }
