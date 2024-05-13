@@ -1,5 +1,6 @@
 import LLDQuestions.elavatorSystem.*;
 import LLDQuestions.elavatorSystem.buttons.ElevatorButton;
+import LLDQuestions.elavatorSystem.buttons.OpenButton;
 import LLDQuestions.elavatorSystem.display.ElevatorDisplay;
 import LLDQuestions.elavatorSystem.display.HallDisplay;
 import LLDQuestions.elavatorSystem.enums.Direction;
@@ -31,5 +32,7 @@ public class Main {
         ElevatorSystem elevatorSystem = ElevatorSystem.getInstance();
         elevatorSystem.monitoring();
         elevatorSystem.dispatcher();
+        OpenButton openButton = new OpenButton();
+        System.out.println(openButton.isPressed());
     }
 }

@@ -3,11 +3,11 @@ package LLDQuestions.elavatorSystem.buttons;
 import LLDQuestions.elavatorSystem.enums.Direction;
 
 public class HallButton extends Button{
+    private Direction direction;
 
-    private Direction buttonSign;
-
-    public HallButton(Direction buttonSign) {
-        this.buttonSign = buttonSign;
+    public HallButton(Direction direction) {
+        super(false);
+        this.direction = direction;
     }
 
     @Override

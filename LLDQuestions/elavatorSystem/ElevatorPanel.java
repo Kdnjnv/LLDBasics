@@ -1,19 +1,20 @@
 package LLDQuestions.elavatorSystem;
 
-import LLDQuestions.elavatorSystem.buttons.DoorButton;
+import LLDQuestions.elavatorSystem.buttons.CloseButton;
 import LLDQuestions.elavatorSystem.buttons.ElevatorButton;
+import LLDQuestions.elavatorSystem.buttons.OpenButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ElevatorPanel {
     private List<ElevatorButton> floorButtons;
-    private DoorButton openButton;
-    private DoorButton closeButton;
+    private OpenButton openButton;
+    private CloseButton closeButton;
 
     public ElevatorPanel() {
         this.floorButtons = new ArrayList<>();
-        this.openButton = new DoorButton();
-        this.closeButton = new DoorButton();
+        this.openButton = new OpenButton();
+        this.closeButton = new CloseButton();
     }
 }
